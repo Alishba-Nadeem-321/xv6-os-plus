@@ -103,6 +103,7 @@ extern uint64 sys_link(void);
 extern uint64 sys_mkdir(void);
 extern uint64 sys_close(void);
 extern uint64 sys_sync(void);
+extern uint64 sys_getsyscount(void);
 
 // An array mapping syscall numbers from syscall.h
 // to the function that handles the system call.
@@ -130,6 +131,7 @@ static uint64 (*syscalls[])(void) = {
   [SYS_mkdir]   = sys_mkdir,
   [SYS_close]   = sys_close,
   [SYS_sync]    = sys_sync,
+  [SYS_getsyscount]  = sys_getsyscount,
   // clang-format on
 };
 
@@ -140,6 +142,7 @@ syscall(void)
   struct proc *p = myproc();
 
   num = p->trapframe->a7;
+  countsyscall(num);
   if (num > 0 && num < NELEM(syscalls) && syscalls[num]) {
     // Use num to lookup the system call function for num, call it,
     // and store its return value in p->trapframe->a0
@@ -148,4 +151,19 @@ syscall(void)
     printk("%d %s: unknown sys call %d\n", p->pid, p->name, num);
     p->trapframe->a0 = -1;
   }
+}
+static uint64 syscall_counts[64];
+void countsyscall(int num)
+{
+if(num >0 && num <NELEM(syscalls) && syscalls[num])
+__atomic_add_fetch(&syscall_counts[num], 1,__ATOMIC_RELAXED);
+}
+
+uint64 sys_getsyscount(void)
+{
+int num;
+argint(0,&num);
+if(num <= 0 || num >= NELEM(syscalls))
+return -1;
+return __atomic_load_n(&syscall_counts[num], __ATOMIC_RELAXED);
 }
