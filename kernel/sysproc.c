@@ -21,6 +21,11 @@ sys_getpid(void)
 {
   return myproc()->pid;
 }
+uint64
+sys_getruntime(void)
+{
+  return myproc()->runtime_ticks;
+}
 
 uint64
 sys_fork(void)

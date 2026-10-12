@@ -80,6 +80,10 @@ usertrap(void)
 
   if (killed(p))
     kexit(-1);
+// Count runtime ticks for the current process.
+  if (which_dev == 2 && p != 0 && p->state == RUNNING)
+    p->runtime_ticks++;
+
 
   // give up the CPU if this is a timer interrupt.
   if (which_dev == 2)
