@@ -24,6 +24,7 @@ int getpid(void);
 char *sys_sbrk(int, int);
 int pause(int);
 int uptime(void);
+int getmeminfo(void);
 int sync(void);
 int getsyscount(int);
 
