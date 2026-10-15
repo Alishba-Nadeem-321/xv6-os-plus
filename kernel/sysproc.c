@@ -117,3 +117,22 @@ sys_procinfo(void)
   procdump();
   return 0;
 }
+uint64
+sys_fileopinfo(void)
+{
+  uint64 addr;
+  uint counts[4];
+  struct proc *p = myproc();
+
+  argaddr(0, &addr);
+
+  counts[0] = p->open_count;
+  counts[1] = p->read_count;
+  counts[2] = p->write_count;
+  counts[3] = p->close_count;
+
+  if (copyout(p->pagetable, p->sz, addr, (char *)counts, sizeof(counts)) < 0)
+    return -1;
+
+  return 0;
+}

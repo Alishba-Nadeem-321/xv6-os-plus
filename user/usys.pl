@@ -45,3 +45,4 @@ entry("uptime");
 entry("sync");
 entry("getsyscount");
 entry("procinfo");
+entry("fileopinfo");

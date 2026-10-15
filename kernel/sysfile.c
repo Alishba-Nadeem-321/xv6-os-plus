@@ -71,12 +71,18 @@ sys_read(void)
   struct file *f;
   int n;
   uint64 p;
+  int result;
 
   argaddr(1, &p);
   argint(2, &n);
   if (argfd(0, 0, &f) < 0)
     return -1;
-  return fileread(f, p, n);
+
+  result = fileread(f, p, n);
+  if (result >= 0)
+    myproc()->read_count++;
+
+  return result;
 }
 
 uint64
@@ -85,13 +91,18 @@ sys_write(void)
   struct file *f;
   int n;
   uint64 p;
+  int result;
 
   argaddr(1, &p);
   argint(2, &n);
   if (argfd(0, 0, &f) < 0)
     return -1;
 
-  return filewrite(f, p, n);
+  result = filewrite(f, p, n);
+  if (result >= 0)
+    myproc()->write_count++;
+
+  return result;
 }
 
 uint64
@@ -102,11 +113,12 @@ sys_close(void)
 
   if (argfd(0, &fd, &f) < 0)
     return -1;
+
+  myproc()->close_count++;
   myproc()->ofile[fd] = 0;
   fileclose(f);
   return 0;
 }
-
 uint64
 sys_fstat(void)
 {
@@ -388,11 +400,13 @@ sys_open(void)
     itrunc(ip);
   }
 
-  iunlock(ip);
+   iunlock(ip);
   end_op();
 
+  myproc()->open_count++;
   return fd;
 }
+
 
 uint64
 sys_mkdir(void)

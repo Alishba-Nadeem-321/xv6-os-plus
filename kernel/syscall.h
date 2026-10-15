@@ -23,3 +23,4 @@
 #define SYS_sync   22
 #define SYS_getsyscount 23
 #define SYS_procinfo 24
+#define SYS_fileopinfo 25
