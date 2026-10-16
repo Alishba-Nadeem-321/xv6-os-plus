@@ -115,3 +115,13 @@ sys_getmeminfo(void)
 {
   return getfreepages();
 }
+uint64
+sys_add(void)
+{
+  int a, b;
+
+  argint(0, &a);
+  argint(1, &b);
+
+  return a + b;
+}

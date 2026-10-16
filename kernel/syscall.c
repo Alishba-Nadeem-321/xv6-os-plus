@@ -105,6 +105,7 @@ extern uint64 sys_close(void);
 extern uint64 sys_sync(void);
 extern uint64 sys_getsyscount(void);
 extern uint64 sys_getmeminfo(void);
+extern uint64 sys_add(void);
 
 // An array mapping syscall numbers from syscall.h
 // to the function that handles the system call.
@@ -134,6 +135,7 @@ static uint64 (*syscalls[])(void) = {
   [SYS_sync]    = sys_sync,
   [SYS_getsyscount]  = sys_getsyscount,
   [SYS_getmeminfo] = sys_getmeminfo,
+  [SYS_add] sys_add,
   // clang-format on
 };
 

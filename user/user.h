@@ -27,7 +27,7 @@ int uptime(void);
 int getmeminfo(void);
 int sync(void);
 int getsyscount(int);
-
+int add(int, int);
 // ulib.c
 int stat(const char *, struct stat *);
 char *strcpy(char *, const char *);

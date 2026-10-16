@@ -43,5 +43,6 @@ entry("sbrk");
 entry("pause");
 entry("uptime");
 entry("getmeminfo");
+entry("add");
 entry("sync");
 entry("getsyscount");
