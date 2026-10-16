@@ -1,13 +1,12 @@
-#include "param.h"
 #include "types.h"
+#include "param.h"
 #include "memlayout.h"
-#include "elf.h"
 #include "riscv.h"
-#include "defs.h"
 #include "spinlock.h"
 #include "proc.h"
+#include "vm.h"
+#include "defs.h"
 #include "fs.h"
-
 /*
  * the kernel's page table.
  */
@@ -488,4 +487,31 @@ ismapped(pagetable_t pagetable, uint64 va)
     return 1;
   }
   return 0;
+}
+// Print valid entries in a page table recursively.
+static void
+vmprint_level(pagetable_t pagetable, int level, uint64 prefix)
+{
+  for (int i = 0; i < 512; i++) {
+    pte_t pte = pagetable[i];
+
+    if (pte & PTE_V) {
+      uint64 va = prefix | ((uint64)i << (12 + 9 * level));
+      uint64 pa = PTE2PA(pte);
+
+     printk("level %d index %d va %lx pte %lx pa %lx flags %x\n",
+       level, i, va, pte, pa, (uint)(pte & 0x3ff));
+
+      if ((pte & (PTE_R | PTE_W | PTE_X)) == 0 && level > 0) {
+        vmprint_level((pagetable_t)pa, level - 1, va);
+      }
+    }
+  }
+}
+
+void
+vmprint(pagetable_t pagetable)
+{
+  printk("Page table: %lx\n", (uint64)pagetable);
+  vmprint_level(pagetable, 2, 0);
 }

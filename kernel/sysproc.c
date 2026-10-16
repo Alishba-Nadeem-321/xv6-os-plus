@@ -110,3 +110,14 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+uint64
+sys_vminspect(void)
+{
+  struct proc *p = myproc();
+
+  if (p == 0)
+    return -1;
+
+  vmprint(p->pagetable);
+  return 0;
+}
