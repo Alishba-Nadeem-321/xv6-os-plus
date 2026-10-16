@@ -46,3 +46,29 @@ You will need a RISC-V "newlib" tool chain from
 https://github.com/riscv/riscv-gnu-toolchain, and qemu compiled for
 riscv64-softmmu.  Once they are installed, and in your shell
 search path, you can run "make qemu".
+# xv6 OS and Computer Architecture Extensions
+
+This project extends the MIT xv6-riscv teaching operating system with 10 additional modules.
+
+## Operating Systems Modules
+
+1. System Call Usage Analyzer
+2. Process Runtime Tracker
+3. Physical Memory Usage Monitor
+4. Kernel Arithmetic System Call
+5. File Operation Usage Monitor
+
+## Computer Architecture Modules
+
+6. RISC-V CPU Cycle Reader
+7. Page Table Inspector
+8. RISC-V Register Snapshot
+9. Arithmetic Instruction Benchmark
+10. Memory Alignment Demonstrator
+
+## Module Organization
+
+- Modules 1–5: Operating Systems
+- Modules 6–10: Computer Architecture
+
+Each module is developed and tested separately where practical.
