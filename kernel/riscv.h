@@ -8,7 +8,12 @@ r_mhartid()
   asm volatile("csrr %0, mhartid" : "=r"(x));
   return x;
 }
-
+// Supervisor-mode Counter-Enable
+static inline void
+w_scounteren(uint64 x)
+{
+  asm volatile("csrw scounteren, %0" : : "r"(x));
+}
 // Machine Status Register, mstatus
 
 #define MSTATUS_MPP_MASK (3L << 11) // previous mode.
