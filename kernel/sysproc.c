@@ -110,3 +110,15 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+uint64
+sys_regsnap(void)
+{
+  printk("RISC-V Register Snapshot\n");
+  printk("sstatus: %lx\n", r_sstatus());
+  printk("sepc:    %lx\n", r_sepc());
+  printk("satp:    %lx\n", r_satp());
+  printk("scause:  %lx\n", r_scause());
+  printk("stval:   %lx\n", r_stval());
+
+  return 0;
+}
