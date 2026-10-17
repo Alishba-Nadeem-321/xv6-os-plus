@@ -33,6 +33,77 @@ flowchart TD
     M10 --> K
 ```
 
+## Project Overview
+
+This project extends the MIT xv6-riscv teaching operating system with
+10 educational modules. The modules are divided into two categories:
+5 Operating System modules and 5 Computer Architecture modules.
+
+The purpose of this project is to understand operating system concepts,
+kernel development, system calls, process management, memory management,
+and RISC-V processor architecture through practical implementation.
+
+## Module Descriptions
+
+### Operating System Modules
+
+#### 01. System Call Usage Analyzer
+Tracks system call usage to help understand how user programs interact
+with the xv6 kernel and how system calls are counted.
+
+#### 02. Process Runtime Tracker
+Tracks process runtime information to demonstrate process execution
+and the role of timer interrupts in operating system scheduling.
+
+#### 03. Physical Memory Usage Monitor
+Provides information about physical memory usage to help understand
+memory allocation and resource management in the kernel.
+
+#### 04. Kernel Arithmetic System Call
+Demonstrates how to add a custom arithmetic system call and connect
+a user program with kernel functionality.
+
+#### 05. File Operation Usage Monitor
+Monitors file operation activity to demonstrate how file-related
+operations are handled and tracked in an operating system.
+
+### Computer Architecture Modules
+
+#### 06. RISC-V CPU Cycle Reader
+Demonstrates reading the RISC-V cycle counter, where supported,
+to explore processor cycles and low-level hardware information.
+
+#### 07. Page Table Inspector
+Helps examine page table entries and understand virtual-to-physical
+address translation and memory protection.
+
+#### 08. RISC-V Register Snapshot
+Demonstrates collecting selected RISC-V register values to explore
+processor state and register-level information.
+
+#### 09. Instruction-Level Arithmetic Benchmark
+Compares arithmetic workloads to explore execution time and
+performance measurement at the instruction and software levels.
+
+#### 10. Memory Alignment Demonstrator
+Demonstrates memory alignment concepts and their relationship to
+data access, memory layout, and processor architecture.
+
+## Learning Objectives
+
+- Understand how user programs interact with the xv6 kernel.
+- Learn how system calls are declared, implemented, and tested.
+- Explore process scheduling, memory management, and file operations.
+- Study RISC-V counters, registers, page tables, and memory alignment.
+- Practice modifying, building, testing, and documenting an operating system.
+
+## Project Structure
+
+- `kernel/` — kernel source code and operating system functionality.
+- `user/` — user programs and user-space system call interfaces.
+- `Makefile` — build configuration for xv6-riscv.
+- `README.md` — project documentation and module architecture.
+
 xv6 is a re-implementation of Dennis Ritchie's and Ken Thompson's Unix
 Version 6 (v6).  xv6 loosely follows the structure and style of v6,
 but is implemented for a modern RISC-V multiprocessor using ANSI C.
