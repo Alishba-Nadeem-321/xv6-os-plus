@@ -1,3 +1,38 @@
+# Customized xv6-riscv Kernel
+
+This project contains 10 modules: 5 Operating System modules and 5 Computer Architecture modules.
+
+
+
+## Module Architecture Diagram
+
+```mermaid
+flowchart TD
+    A["Customized xv6-riscv Kernel"]
+    A --> OS["Operating System Extensions"]
+    A --> CA["Computer Architecture Extensions"]
+    OS --> M1["01. System Call Usage Analyzer"]
+    OS --> M2["02. Process Runtime Tracker"]
+    OS --> M3["03. Physical Memory Usage Monitor"]
+    OS --> M4["04. Kernel Arithmetic System Call"]
+    OS --> M5["05. File Operation Usage Monitor"]
+    CA --> M6["06. RISC-V CPU Cycle Reader"]
+    CA --> M7["07. Page Table Inspector"]
+    CA --> M8["08. RISC-V Register Snapshot"]
+    CA --> M9["09. Instruction-Level Arithmetic Benchmark"]
+    CA --> M10["10. Memory Alignment Demonstrator"]
+    M1 --> K["Kernel Components"]
+    M2 --> K
+    M3 --> K
+    M4 --> K
+    M5 --> K
+    M6 --> K
+    M7 --> K
+    M8 --> K
+    M9 --> K
+    M10 --> K
+```
+
 xv6 is a re-implementation of Dennis Ritchie's and Ken Thompson's Unix
 Version 6 (v6).  xv6 loosely follows the structure and style of v6,
 but is implemented for a modern RISC-V multiprocessor using ANSI C.
