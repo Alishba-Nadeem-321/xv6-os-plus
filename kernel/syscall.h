@@ -24,3 +24,4 @@
 #define SYS_getsyscount 23
 #define SYS_getruntime 24
 #define SYS_getmeminfo 25
+#define SYS_add 26

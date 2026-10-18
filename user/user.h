@@ -28,6 +28,7 @@ int sync(void);
 int getsyscount(int);
 int getruntime(void);
 int getmeminfo(void);
+int add(int, int);
 
 // ulib.c
 int stat(const char *, struct stat *);
