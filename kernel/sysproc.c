@@ -116,3 +116,9 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+uint64
+sys_getmeminfo(void)
+{
+  return getfreepages();
+}

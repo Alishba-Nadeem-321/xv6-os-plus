@@ -152,6 +152,7 @@ UPROGS=\
 	$U/_sync\
         $U/_syscount\
 	$U/_runtime\
+        $U/_meminfo\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	mkfs/mkfs fs.img README.md $(UPROGS)
