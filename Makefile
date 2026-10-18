@@ -158,6 +158,7 @@ UPROGS=\
 	$U/_cycle\
     $U/_pagetable\
         $U/_regsnap\
+        $U/_arithbench\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	mkfs/mkfs fs.img README.md $(UPROGS)

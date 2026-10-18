@@ -16,23 +16,23 @@ main(void)
   printf("Iterations: %d\n", ITERATIONS);
 
   // Addition benchmark
-  asm volatile("rdcycle %0" : "=r"(start));
+  start = getcycle();
 
   for (i = 0; i < ITERATIONS; i++) {
     add_result = add_result + i;
   }
 
-  asm volatile("rdcycle %0" : "=r"(end));
+  end = getcycle();
   add_cycles = end - start;
 
   // Multiplication benchmark
-  asm volatile("rdcycle %0" : "=r"(start));
+  start = getcycle();
 
   for (i = 0; i < ITERATIONS; i++) {
     mul_result = mul_result * 3 + i;
   }
 
-  asm volatile("rdcycle %0" : "=r"(end));
+  end = getcycle();
   mul_cycles = end - start;
 
   printf("Addition result: %d\n", (int)add_result);
