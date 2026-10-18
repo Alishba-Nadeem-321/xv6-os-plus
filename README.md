@@ -2,26 +2,28 @@
 
 This project contains 10 modules: 5 Operating System modules and 5 Computer Architecture modules.
 
-
-
 ## Module Architecture Diagram
 
 ```mermaid
-flowchart TD
+flowchart TB
     A["Customized xv6-riscv Kernel"]
-    A --> OS["Operating System Extensions"]
-    A --> CA["Computer Architecture Extensions"]
+
+    A --> OS["Operating System Modules"]
+    A --> CA["Computer Architecture Modules"]
+
     OS --> M1["01. System Call Usage Analyzer"]
     OS --> M2["02. Process Runtime Tracker"]
     OS --> M3["03. Physical Memory Usage Monitor"]
     OS --> M4["04. Kernel Arithmetic System Call"]
     OS --> M5["05. File Operation Usage Monitor"]
+
     CA --> M6["06. RISC-V CPU Cycle Reader"]
     CA --> M7["07. Page Table Inspector"]
     CA --> M8["08. RISC-V Register Snapshot"]
     CA --> M9["09. Instruction-Level Arithmetic Benchmark"]
     CA --> M10["10. Memory Alignment Demonstrator"]
-    M1 --> K["Kernel Components"]
+
+    M1 --> K["Core xv6 Kernel"]
     M2 --> K
     M3 --> K
     M4 --> K
@@ -32,6 +34,13 @@ flowchart TD
     M9 --> K
     M10 --> K
 ```
+
+
+
+
+
+
+
 
 ## Project Overview
 
