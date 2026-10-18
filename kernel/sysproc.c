@@ -171,3 +171,17 @@ sys_pagetable(void)
   vmprintuser(p->pagetable, p->sz);
   return 0;
 }
+
+uint64
+sys_regsnap(void)
+{
+  printk("RISC-V Register Snapshot\n");
+  printk("sstatus: 0x%lx\n", r_sstatus());
+  printk("sepc:    0x%lx\n", r_sepc());
+  printk("scause:  0x%lx\n", r_scause());
+  printk("stval:   0x%lx\n", r_stval());
+  printk("satp:    0x%lx\n", r_satp());
+  printk("sp:      0x%lx\n", r_sp());
+  printk("tp:      0x%lx\n", r_tp());
+  return 0;
+}

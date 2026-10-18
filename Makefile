@@ -157,6 +157,7 @@ UPROGS=\
 	$U/_fileop\
 	$U/_cycle\
     $U/_pagetable\
+        $U/_regsnap\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	mkfs/mkfs fs.img README.md $(UPROGS)

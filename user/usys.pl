@@ -48,5 +48,6 @@ entry("getruntime");
 entry("fileopinfo");
 entry("getcycle");
 entry("pagetable");
+entry("regsnap");
 entry("getmeminfo");
 entry("add");

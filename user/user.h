@@ -31,6 +31,7 @@ struct fileop_stats;
 int fileopinfo(struct fileop_stats *);
 uint64 getcycle(void);
 int pagetable(void);
+int regsnap(void);
 
 int getmeminfo(void);
 int add(int, int);
