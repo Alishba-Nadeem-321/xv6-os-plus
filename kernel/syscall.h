@@ -27,3 +27,4 @@
 #define SYS_add 26
 #define SYS_fileopinfo 27
 #define SYS_getcycle 28
+#define SYS_pagetable 29

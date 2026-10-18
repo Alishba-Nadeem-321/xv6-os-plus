@@ -156,6 +156,7 @@ UPROGS=\
         $U/_arith \
 	$U/_fileop\
 	$U/_cycle\
+    $U/_pagetable\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	mkfs/mkfs fs.img README.md $(UPROGS)

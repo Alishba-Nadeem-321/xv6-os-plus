@@ -159,3 +159,15 @@ sys_getcycle(void)
 {
   return r_cycle();
 }
+
+uint64
+sys_pagetable(void)
+{
+  struct proc *p = myproc();
+
+  if (p == 0)
+    return -1;
+
+  vmprintuser(p->pagetable, p->sz);
+  return 0;
+}

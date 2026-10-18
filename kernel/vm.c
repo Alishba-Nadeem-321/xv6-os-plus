@@ -489,3 +489,26 @@ ismapped(pagetable_t pagetable, uint64 va)
   }
   return 0;
 }
+
+// Print valid user page-table mappings for inspection.
+void
+vmprintuser(pagetable_t pagetable, uint64 sz)
+{
+  uint64 va;
+  pte_t *pte;
+
+  printk("Page Table Inspector\n");
+  printk("Virtual Address -> Physical Address | Permissions\n");
+
+  for (va = 0; va < sz; va += PGSIZE) {
+    pte = walk(pagetable, va, 0);
+    if (pte && (*pte & PTE_V) && (*pte & PTE_U)) {
+      printk("0x%lx -> 0x%lx | %c%c%c\n",
+             va,
+             PTE2PA(*pte),
+             (*pte & PTE_R) ? 'R' : '-',
+             (*pte & PTE_W) ? 'W' : '-',
+             (*pte & PTE_X) ? 'X' : '-');
+    }
+  }
+}

@@ -109,6 +109,7 @@ extern uint64 sys_getmeminfo(void);
 extern uint64 sys_add(void);
 extern uint64 sys_fileopinfo(void);
 extern uint64 sys_getcycle(void);
+extern uint64 sys_pagetable(void);
 
 // An array mapping syscall numbers from syscall.h
 // to the function that handles the system call.
@@ -142,6 +143,7 @@ static uint64 (*syscalls[])(void) = {
   [SYS_add] = sys_add,
   [SYS_fileopinfo] = sys_fileopinfo,
   [SYS_getcycle] = sys_getcycle,
+  [SYS_pagetable] = sys_pagetable,
   // clang-format on
 };
 
