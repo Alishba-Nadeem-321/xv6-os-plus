@@ -27,6 +27,9 @@ int uptime(void);
 int sync(void);
 int getsyscount(int);
 int getruntime(void);
+struct fileop_stats;
+int fileopinfo(struct fileop_stats *);
+
 int getmeminfo(void);
 int add(int, int);
 

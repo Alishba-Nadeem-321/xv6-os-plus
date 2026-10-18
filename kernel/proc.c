@@ -124,6 +124,10 @@ allocproc(void)
 found:
   p->pid = allocpid();
   p->runtime_ticks = 0;
+  p->file_open_count = 0;
+  p->file_read_count = 0;
+  p->file_write_count = 0;
+  p->file_close_count = 0;
   p->state = USED;
 
   // Allocate a trapframe page.
@@ -165,6 +169,10 @@ freeproc(struct proc *p)
   p->sz = 0;
   p->pid = 0;
   p->runtime_ticks = 0;
+  p->file_open_count = 0;
+  p->file_read_count = 0;
+  p->file_write_count = 0;
+  p->file_close_count = 0;
   p->name[0] = 0;
   p->chan = 0;
   p->killed = 0;

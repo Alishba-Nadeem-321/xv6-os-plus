@@ -68,6 +68,7 @@ sys_dup(void)
 uint64
 sys_read(void)
 {
+  myproc()->file_read_count++;
   struct file *f;
   int n;
   uint64 p;
@@ -82,6 +83,7 @@ sys_read(void)
 uint64
 sys_write(void)
 {
+  myproc()->file_write_count++;
   struct file *f;
   int n;
   uint64 p;
@@ -97,6 +99,7 @@ sys_write(void)
 uint64
 sys_close(void)
 {
+  myproc()->file_close_count++;
   int fd;
   struct file *f;
 
@@ -328,6 +331,7 @@ fail:
 uint64
 sys_open(void)
 {
+  myproc()->file_open_count++;
   char path[MAXPATH];
   int fd, omode;
   struct file *f;

@@ -153,7 +153,8 @@ UPROGS=\
         $U/_syscount\
 	$U/_runtime\
         $U/_meminfo\
-        $U/_arith\
+        $U/_arith \
+	$U/_fileop\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	mkfs/mkfs fs.img README.md $(UPROGS)

@@ -45,5 +45,6 @@ entry("uptime");
 entry("sync");
 entry("getsyscount");
 entry("getruntime");
+entry("fileopinfo");
 entry("getmeminfo");
 entry("add");

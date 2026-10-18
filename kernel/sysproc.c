@@ -29,6 +29,27 @@ sys_getruntime(void)
 }
 
 uint64
+sys_fileopinfo(void)
+{
+  uint64 addr;
+  struct proc *p = myproc();
+  struct fileop_stats stats;
+
+  argaddr(0, &addr);
+
+  stats.open_count = p->file_open_count;
+  stats.read_count = p->file_read_count;
+  stats.write_count = p->file_write_count;
+  stats.close_count = p->file_close_count;
+
+  if (copyout(p->pagetable, p->sz, addr, (char *)&stats,
+              sizeof(stats)) < 0)
+    return -1;
+
+  return 0;
+}
+
+uint64
 sys_fork(void)
 {
   return kfork();

@@ -89,6 +89,10 @@ struct proc {
   int xstate;           // Exit status to be returned to parent's wait
   int pid;              // Process ID
   uint runtime_ticks;   // Timer ticks while process is running
+  uint file_open_count;
+  uint file_read_count;
+  uint file_write_count;
+  uint file_close_count;
 
   // wait_lock must be held when using this:
   struct proc *parent; // Parent process

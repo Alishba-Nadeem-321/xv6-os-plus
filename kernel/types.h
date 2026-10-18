@@ -8,3 +8,10 @@ typedef unsigned int uint32;
 typedef unsigned long uint64;
 
 typedef uint64 pde_t;
+
+struct fileop_stats {
+  uint open_count;
+  uint read_count;
+  uint write_count;
+  uint close_count;
+};
