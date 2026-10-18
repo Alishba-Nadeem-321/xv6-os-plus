@@ -153,3 +153,9 @@ sys_add(void)
   argint(1, &b);
   return a + b;
 }
+
+uint64
+sys_getcycle(void)
+{
+  return r_cycle();
+}

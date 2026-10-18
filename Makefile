@@ -155,6 +155,7 @@ UPROGS=\
         $U/_meminfo\
         $U/_arith \
 	$U/_fileop\
+	$U/_cycle\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	mkfs/mkfs fs.img README.md $(UPROGS)

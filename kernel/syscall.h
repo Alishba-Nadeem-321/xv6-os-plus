@@ -26,3 +26,4 @@
 #define SYS_getmeminfo 25
 #define SYS_add 26
 #define SYS_fileopinfo 27
+#define SYS_getcycle 28

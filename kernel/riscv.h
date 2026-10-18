@@ -305,6 +305,15 @@ r_time()
   return x;
 }
 
+// Read the RISC-V CPU cycle counter.
+static inline uint64
+r_cycle()
+{
+  uint64 x;
+  asm volatile("csrr %0, cycle" : "=r"(x));
+  return x;
+}
+
 // enable device interrupts
 static inline void
 intr_on()
