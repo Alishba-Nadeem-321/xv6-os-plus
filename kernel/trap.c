@@ -80,7 +80,9 @@ usertrap(void)
 
   if (killed(p))
     kexit(-1);
-
+  // Count timer ticks while this process is running.
+  if (which_dev == 2 && p != 0 && p->state == RUNNING)
+    p->runtime_ticks++;
   // give up the CPU if this is a timer interrupt.
   if (which_dev == 2)
     yield();

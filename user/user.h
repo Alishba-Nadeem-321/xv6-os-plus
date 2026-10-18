@@ -26,6 +26,7 @@ int pause(int);
 int uptime(void);
 int sync(void);
 int getsyscount(int);
+int getruntime(void);
 
 // ulib.c
 int stat(const char *, struct stat *);

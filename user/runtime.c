@@ -3,10 +3,10 @@
 int
 main(void)
 {
- int i;
+ volatile int i;
  int start,end;
  start = getruntime();
- for (i = 0;i< 10000000; i++){
+ for (i = 0; i < 50000000; i++) {
    // Busy loop to let timer ticks accumulate.
 }
  end = getruntime();
