@@ -1,3 +1,11 @@
+# Project Team Members
+
+1. Alishba Nadeem
+2. Aqsa Laraib
+3. Adrish Jabeen
+4. Moiza
+
+---
 # Customized xv6-riscv Kernel
 
 This project contains 10 modules: 5 Operating System modules and 5 Computer Architecture modules.
