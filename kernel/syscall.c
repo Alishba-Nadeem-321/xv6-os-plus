@@ -153,17 +153,19 @@ syscall(void)
   }
 }
 static uint64 syscall_counts[64];
-void countsyscall(int num)
+void
+countsyscall(int num)
 {
-if(num >0 && num <NELEM(syscalls) && syscalls[num])
-__atomic_add_fetch(&syscall_counts[num], 1,__ATOMIC_RELAXED);
+  if (num > 0 && num < NELEM(syscalls) && syscalls[num])
+    __atomic_add_fetch(&syscall_counts[num], 1, __ATOMIC_RELAXED);
 }
 
-uint64 sys_getsyscount(void)
+uint64
+sys_getsyscount(void)
 {
-int num;
-argint(0,&num);
-if(num <= 0 || num >= NELEM(syscalls))
-return -1;
-return __atomic_load_n(&syscall_counts[num], __ATOMIC_RELAXED);
+  int num;
+  argint(0, &num);
+  if (num <= 0 || num >= NELEM(syscalls))
+    return -1;
+  return __atomic_load_n(&syscall_counts[num], __ATOMIC_RELAXED);
 }
