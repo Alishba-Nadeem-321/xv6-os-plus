@@ -1,10 +1,7 @@
-# Project Team Members
+# Project Student
 
-1. Alishba Nadeem
-2. Aqsa Laraib
-3. Adrish Jabeen
-4. Moiza
-
+Name: Alishba Nadeem  
+Roll No:BCS-F24-E30
 ---
 # Customized xv6-riscv Kernel
 
